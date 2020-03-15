@@ -1,6 +1,16 @@
 /*--
     Common Css
 --*/
+.header {
+  background-color: #fff;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  float: left;
+  z-index: 9;
+}
+
 body {
   font-size: 14px;
   font-weight: 300;
@@ -101,7 +111,7 @@ a:active {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .font-size-60 {
@@ -130,11 +140,21 @@ a:active {
   text-align: center;
 }
 
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .heading {
   text-align: center;
   color: #777777;
   padding-bottom: 70px;
 }
+
 
 .heading h2 {
   color: #3c3c3c;
@@ -160,13 +180,27 @@ a:active {
   line-height: 45px;
 }
 
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
 .btn {
   border-radius: 0;
 }
 
 .btn-main {
   color: #fff;
-  border-radius: 30px;
+  border-radius: 10px;
   font-size: 18px;
   padding: 15px 40px;
   display: inline-block;
