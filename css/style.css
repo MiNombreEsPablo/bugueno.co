@@ -78,7 +78,7 @@ a {
   background-image: url(../images/get-in-touch.jpg);
 }
 
-.bg-orange {
+.bg-color {
   background: #f9a743;
 }
 
@@ -488,10 +488,16 @@ a:active {
   margin-top: 30px;
 }
 
-.testimonials .testimonial-block .author-details img {
+.testimonials .testimonial-block .author-details img{
   border-radius: 50%;
   width: 50px;
 }
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 
 .testimonials .testimonial-block .author-details h4 {
   font-weight: 700;
@@ -529,6 +535,10 @@ a:active {
   padding-left: 15px;
   box-shadow: none;
   display: table-cell;
+}
+
+a {
+  color: #f9a743;
 }
 
 .footer-menu a {
