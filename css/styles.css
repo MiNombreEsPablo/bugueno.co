@@ -235,7 +235,7 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-input,
+,
 button,
 select,
 optgroup,
@@ -289,6 +289,7 @@ input[type=checkbox] {
 }
 
 input[type=date],
+input[type=email],
 input[type=time],
 input[type=datetime-local],
 input[type=month] {
@@ -2202,6 +2203,13 @@ textarea.form-control {
 .is-valid ~ .valid-feedback,
 .is-valid ~ .valid-tooltip {
   display: block;
+}
+
+.mc_embed_signup{
+  background:#fff;
+  clear:left;
+  font:14px Helvetica,Arial,sans-serif;
+  width:100%;
 }
 
 .was-validated .form-control:valid, .form-control.is-valid {
