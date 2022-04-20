@@ -1,0 +1,2 @@
+# bugueno.co
+Personal site
