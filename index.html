@@ -156,7 +156,14 @@
             applyLanguage(document.documentElement.lang === 'es' ? 'en' : 'es');
         });
 
-        applyLanguage(localStorage.getItem('lang') || 'es');
+        function detectLanguage() {
+            const saved = localStorage.getItem('lang');
+            if (saved) return saved;
+            const browserLang = navigator.language || 'es';
+            return browserLang.toLowerCase().startsWith('es') ? 'es' : 'en';
+        }
+
+        applyLanguage(detectLanguage());
     </script>
 </body>
 
