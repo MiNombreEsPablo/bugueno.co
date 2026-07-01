@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="css/w3-theme.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Links MiNombreEsPablo</title>
     <script src="https://kit.fontawesome.com/a2bab65f30.js" crossorigin="anonymous"></script>
     <style>
@@ -31,6 +32,13 @@
 
         .link {
             padding: 14px 20px;
+        }
+
+        .lang-toggle {
+            display: block;
+            margin-left: auto;
+            padding: 4px 12px;
+            font-size: 12px;
         }
 
         .w3-theme-l1:hover {
@@ -77,14 +85,16 @@
 
     <div class="container">
 
+        <button id="lang-toggle" type="button"
+            class="lang-toggle w3-button w3-round w3-theme-l1 w3-border">EN</button>
+
         <!-- Image and name container. Change to your pictue here. -->
         <div style="text-align: center">
             <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/a7a72740-dc9b-469b-83eb-9462e6ac01fa-profile_image-300x300.png"
                 class="w3-margin" alt="image" width="150px" height="150px" style="border-radius: 50%;">
-            <p><span class="name w3-padding w3-deep-purple w3-round" style="font-weight: bolder;">Hola, mi nombre
-                    es
-                    Pablo</span></p>
-            <p style="font-weight: bolder; color: white">y esta es mi página</p>
+            <p><span class="name w3-padding w3-deep-purple w3-round" style="font-weight: bolder;"
+                    data-i18n="greeting">Hola, mi nombre es Pablo</span></p>
+            <p style="font-weight: bolder; color: white" data-i18n="tagline">y esta es mi página</p>
         </div>
         <!-- Links section 1. Replace the # inside of the "" with your links. -->
         <!--<h4 class="margin-top-2" style="text-align: center;">MY SOCIAL NETWORKS</h4> -->
@@ -101,7 +111,7 @@
             <br>
             <a href="https://streamlabs.com/minombreespablo1/tip"
                 class="w3-button w3-round-xlarge w3-theme-l1 w3-border link" target="_blank"><i
-                    class="fa-solid fa-hand-holding-dollar"></i> Donaciones</a>
+                    class="fa-solid fa-hand-holding-dollar"></i> <span data-i18n="donaciones">Donaciones</span></a>
             <br>
             <a href="https://www.twitch.tv/minombreespablo" class="w3-button w3-round-xlarge w3-theme-l1 w3-border link"
                 target="_blank"><i class="fa-brands fa-twitch"></i> Twitch</a>
@@ -118,6 +128,36 @@
         </div>
 
     </div>
+    <script>
+        const translations = {
+            es: {
+                greeting: 'Hola, mi nombre es Pablo',
+                tagline: 'y esta es mi página',
+                donaciones: 'Donaciones',
+            },
+            en: {
+                greeting: 'Hi, my name is Pablo',
+                tagline: 'and this is my page',
+                donaciones: 'Donations',
+            },
+        };
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                el.textContent = translations[lang][el.dataset.i18n];
+            });
+            document.documentElement.lang = lang;
+            document.getElementById('lang-toggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            localStorage.setItem('lang', lang);
+        }
+
+        const langToggle = document.getElementById('lang-toggle');
+        langToggle.addEventListener('click', () => {
+            applyLanguage(document.documentElement.lang === 'es' ? 'en' : 'es');
+        });
+
+        applyLanguage(localStorage.getItem('lang') || 'es');
+    </script>
 </body>
 
 </html>
